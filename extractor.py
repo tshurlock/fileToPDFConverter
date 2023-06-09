@@ -5,9 +5,9 @@ import os
 
 
 
-def extraction():
-    zip_file = 'C:\\Users\\Tim\\Downloads\\Output.zip'
-    extract_to = 'C:\\Users\\Tim\\PycharmProjects\\pythonProject8\\testToConvert'
+def extraction(file_path):
+    zip_file = file_path
+    extract_to = 'C:\\Users\\Tim\\Desktop\\ExtractedZips'
 
     # Make sure the extract directory exists
     if not os.path.exists(extract_to):
