@@ -18,4 +18,4 @@ def extraction(file_path):
         zip_ref.extractall(extract_to)
 
     print(f'Successfully extracted {zip_file} to {extract_to}')
-
+    return extract_to

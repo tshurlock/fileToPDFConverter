@@ -12,11 +12,13 @@ if __name__ == '__main__':
     folder_path= extractor.extraction(file_path)
 
     print()
+    print('The zip file {} was extracted, its contents have been saved at {}'.format(file_path, folder_path))
 
     '''docToDocxConverter contains single function docToDocx which iterates through directory, for any .doc file, it 
     converts to .docx and deletes the original file'''
+    '''
     import docToDocxConverter
     docToDocxConverter.docToDocx()
-
+'''
 
 

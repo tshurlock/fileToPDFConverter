@@ -2,9 +2,10 @@
 
 **09/05/2023**
 
-GUI added to select zip file using file explorer
-Next steps to pick up destination path of extracted zip in main and then add 
-OS walk in main will divert to relvent file type converter
+main now uses file explorer to select zip file and select destination file 
+and holds they values, next step is to run OS walk in main which
+will point the file the relevent converter so single walk is needed, not one
+for each py file
 
 
 **23/05/2023**
