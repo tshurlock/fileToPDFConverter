@@ -3,7 +3,6 @@ from tkinter import filedialog
 
 def open_file_explorer():
     root = tk.Tk()
-
     root.iconbitmap('converts.ico')
     file_path = filedialog.askopenfilename()
     root.withdraw()

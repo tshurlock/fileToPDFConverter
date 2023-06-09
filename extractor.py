@@ -2,12 +2,12 @@
 
 import zipfile
 import os
-
+import GUIFolder
 
 
 def extraction(file_path):
     zip_file = file_path
-    extract_to = 'C:\\Users\\Tim\\Desktop\\ExtractedZips'
+    extract_to = GUIFolder.select_folder()
 
     # Make sure the extract directory exists
     if not os.path.exists(extract_to):
