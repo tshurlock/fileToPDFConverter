@@ -1,4 +1,5 @@
-'''single function to extract the content of a zip file'''
+'''single function to extract the content of a zip file, imports GUIfolder that allows file location to be selected
+using file explorer'''
 
 import zipfile
 import os
