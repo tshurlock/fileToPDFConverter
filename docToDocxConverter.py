@@ -1,12 +1,12 @@
 import os
 from doc2docx import convert
 
-def docToDocx():
-    directory = 'testToConvert'
+def docToDocx(folder_path):
+    for subdir, dirs, files in os.walk(folder_path):
+            for filename in files:
+                if filename.endswith('.doc'):
+                    doc_path = os.path.join(subdir, filename)
+                    docx_path = os.path.join(subdir, filename + 'x')
+                    convert(doc_path, docx_path)
+                    os.remove(doc_path)
 
-    for filename in os.listdir(directory):
-        if filename.endswith('.doc'):
-            doc_path = os.path.join(directory, filename)
-            docx_path = os.path.join(directory, filename + 'x')
-            convert(doc_path, docx_path)
-            os.remove(doc_path)
