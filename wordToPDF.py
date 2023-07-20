@@ -4,16 +4,27 @@ import glob
 from docx2pdf import convert as docx_to_pdf
 from win32com import client
 
-# Define the input and output folders
-input_folder = 'testToConvert'
-output_folder = 'testToConvert'
 
-# Iterate through all the files in the input folder
-for file_path in glob.glob(os.path.join(input_folder, '*.*')):
-    # Get the file extension
+wordTypes = ('.docx')
+
+
+def wordToPDFConvert(subdir, filename):
+    input_path = os.path.join(subdir, filename)
+    output_path = os.path.join(subdir, f"{os.path.splitext(filename)[0]}.pdf")
+    docx_to_pdf(input_path, output_path)
+    os.remove(input_path)
+
+
+'''
+def wordToPDFConvert(subdir, filename):
+    input_path = os.path.join(subdir, filename)
+    output_path = os.path.join(subdir, f"{os.path.splitext(filename)[0]}.pdf")
+
     file_ext = os.path.splitext(file_path)[1].lower()
 
     # Convert .docx and .doc files to PDF
     if file_ext in ['.docx', '.doc']:
         docx_to_pdf(file_path, os.path.join(output_folder, f'{os.path.basename(file_path)[:-5]}.pdf'))
 
+
+'''
