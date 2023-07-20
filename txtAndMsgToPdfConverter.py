@@ -7,9 +7,15 @@ wrapping'''
 
 '''cant handle chars in Ed report, encoding issue try with RTF'''
 from fpdf import FPDF
+import os
 
-def convertTxtOrMsgToPdf(txt_file, pdf_file):
+txtTypes = ('.txt', '.msg')
+
+def convertTxtOrMsgToPdf(subdir, filename):
     # Create a new PDF instance
+    input_path = os.path.join(subdir, filename)
+    output_path = os.path.join(subdir, f"{os.path.splitext(filename)[0]}.pdf")
+
     pdf = FPDF()
 
     # Set the margins (change as needed)
@@ -28,7 +34,7 @@ def convertTxtOrMsgToPdf(txt_file, pdf_file):
     # Open the .txt file and read its content
     '''ed reports file has special characters, required encoding argument to work and values is latin-1, may need to 
     provide this as if argument to determine encoding'''
-    with open(txt_file, 'r', encoding='latin-1') as file:
+    with open(input_path, 'r', encoding='latin-1') as file:
         content = file.read()
 
     # Add a new page
@@ -42,11 +48,6 @@ def convertTxtOrMsgToPdf(txt_file, pdf_file):
     lines = pdf.multi_cell(usable_width, font_size, content)
 
     # Output the PDF file
-    pdf.output(pdf_file)
+    pdf.output(output_path)
+    os.remove(input_path)
 
-# Provide the paths for the .txt file and the output PDF file
-txt_file_path = 'testToConvert\\testes.txt'
-pdf_file_path = 'testToConvert\\msgInA.pdf'
-
-# Call the function to convert .txt to PDF
-convertTxtOrMsgToPdf(txt_file_path, pdf_file_path)
