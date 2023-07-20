@@ -1,6 +1,43 @@
-**DRAFT and NOTES**
+**File to PDF converter**
 
-**09/05/2023**
+**20/07/2023**
+
+**Purpose**
+
+This programme takes a zipfile, extracts the contents. It then iterates
+through all files in dir and any subdir. 
+
+-If the file is a supported type it is
+converted to a PDF (in situ) and the original file format is deleted.
+-If the file is already a PDF file it is left in situ
+-If the file is an unsuported format it is left in situ
+
+The end result is that all of the files in the location chosen to extract 
+the zip file will end up as PDFs (unless unsupported format)
+
+**Operation**
+
+1) run main.py
+2) User is provided with file explorer window in order to select a zipfile
+3) User is immediately provided with a second file explorer window to select
+a location to extract zip file
+4) A first pass OS walk checks for .doc format files and converts to .docx
+   (in preparation for PDF conversion)
+5) A second OS walk through the location where zip was extracted checks each
+file type.
+6) if file type is a supported image, txt, msg or word file it is converted
+to PDF (in situ) and original file format is deleted.
+7) If file type is already PDF or is an unsupported format then it is left
+in situ
+8) A report 'conversion_to_PDF_report.txt' is produced detailing, date/time
+and the action taken for each file
+
+**WARNING**
+
+zipfile should be extracted to a new/empty directory. Main will attempt to
+convert all files at location of extraction, therefore if extracted to 
+e.g. desktop, documents can result in long run time and uninteded loss of
+documents in their original format.
 
 main now uses file explorer to select zip file and select destination file 
 and holds they values, next step is to run OS walk in main which
@@ -8,11 +45,10 @@ will point the file the relevent converter so single walk is needed, not one
 for each py file
 
 
-**23/05/2023**
+**Action of individual modules**
 
-Throughout programme hard coded file paths used, will use PATH objects from pathlib in future and ideally end user
-to use file explorer to select source zipfile for conversion and destination for converted files.
-Currently able to convert .txt, .doc, .docx, image files and .msg which covers 99.2% of files in docSearch
+
+Currently able to convert .txt, .doc, .docx, image files and .msg.
 
 -main; imports extractor.py which contains extraction function to extract a zipfile, and imports doToDocxConverter,
 which contains docToDocx function that converts doc to docx and deletes the original (in preparation for docxtopdf).
@@ -30,25 +66,7 @@ files to pdf
 
 -wordToPDF; .docx to PDF
 
-
-
-
-
-**NOTES**
-
-Front end considerations and deployment ?Tkinter ?Webapp
-Need os walk
-
-need exception handling if file is not valid type.
-
-**TODO**
-
-Completion report
-Copy file structure including where unable to convert to PDF
-
-
-
-**File Type**
+**Supported File Types**
 
 .txt _ complete
 .doc _ complete
