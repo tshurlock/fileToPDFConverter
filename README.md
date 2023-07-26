@@ -68,31 +68,12 @@ files to pdf
 
 **Supported File Types**
 
-.txt _ complete
-.doc _ complete
-.pdf _ not required
-.docx_ complete
-.tif _ complete
-.msg _ complete
-.jpg _ complete
-.xlsx
-.rtf
-.xls
-.png _ complete
-.htm
-.gif _ complete
-.zip _ n/a
-.jpeg _ complete
-.wav
-.xps
-.tiff _ complete
-.xlsm
-.html
-.pptx
-.ppt
-.mht
-.xltx
-.csv
-.bmp
-.eml
-.dotx
+**Supported:**
+.txt, .doc, .docx, .tif, .msg, .jpg, .png, .gif, .jpeg, .tiff
+
+**Not applicable:**
+.pdf (conversion not required, PDF is desired file format)
+.zip (content will be extracted and individual files converted)
+
+**Currenlty not supported:**
+.xlsx, .rtf, .xls, .htm, .wav, .xps, .xlsm, .html, .pptx, .ppt, .mht, .xltx, .csv, .bmp, .eml, .dotx
