@@ -1,6 +1,6 @@
 **File to PDF converter**
 
-**20/07/2023**
+**11/03/2024**
 
 **Purpose**
 
@@ -38,6 +38,7 @@ zipfile should be extracted to a new/empty directory. Main will attempt to
 convert all files at location of extraction, therefore if extracted to 
 e.g. desktop, documents can result in long run time and uninteded loss of
 documents in their original format.
+To do: add try statement to confirm state of extraction destination directory to avoid this issue
 
 main now uses file explorer to select zip file and select destination file 
 and holds they values, next step is to run OS walk in main which
